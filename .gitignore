@@ -1,0 +1,7 @@
+Intermediate/
+Binaries/
+Saved/
+.vs/
+*.sln
+*.dll
+*.exe
