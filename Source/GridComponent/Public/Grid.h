@@ -72,7 +72,7 @@ private:
 	float DebugLineThickness = 1.5f;
 	
 	UPROPERTY(EditAnywhere, Category="Grid|Debug")
-	float DebugLineZOffset = 0.01f;
+	float DebugLineZOffset = 1.f;
 	
 	
 
