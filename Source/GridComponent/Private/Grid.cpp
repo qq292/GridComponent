@@ -38,6 +38,11 @@ void UGrid::BeginPlay()
 }
 
 
+FIntPoint UGrid::Mirror(FIntPoint Cell) const
+{
+	return FIntPoint(GridSize.X - 1 - Cell.X, Cell.Y);
+}
+
 FVector UGrid::CellToWorld(const FIntPoint& Cell) const
 {
 	if (!GetOwner())return FVector::ZeroVector;

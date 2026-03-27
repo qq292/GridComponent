@@ -37,8 +37,10 @@ private:
 	FVector2D CellSize=FIntPoint(100.f,100.f);
 	
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Grid",meta=(AllowPrivateAccess="true"))
-	FIntPoint GridSize=FIntPoint(20.f,20.f);
+	FIntPoint GridSize=FIntPoint(20,20);
 	
+	UFUNCTION(BlueprintPure, Category="Grid",meta=(AllowPrivateAccess="true"))
+	FIntPoint Mirror(FIntPoint Cell) const;
 
 
 	UFUNCTION(BlueprintCallable, Category="Grid",meta=(AllowPrivateAccess="true"))
