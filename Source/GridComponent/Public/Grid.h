@@ -28,25 +28,25 @@ public:
 	UGrid();
 	FVector GetGridOriginOffset() const;
 	
-private:
+public:
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid",meta=(AllowPrivateAccess="true"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid")
 	EGridOrigin GridOrigin = EGridOrigin::BottomLeft;
 	
-	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Grid",meta=(AllowPrivateAccess="true"))
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Grid")
 	FVector2D CellSize=FIntPoint(100.f,100.f);
 	
-	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Grid",meta=(AllowPrivateAccess="true"))
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Grid")
 	FIntPoint GridSize=FIntPoint(20,20);
 	
-	UFUNCTION(BlueprintPure, Category="Grid",meta=(AllowPrivateAccess="true"))
+	UFUNCTION(BlueprintPure, Category="Grid")
 	FIntPoint Mirror(FIntPoint Cell) const;
 
 
-	UFUNCTION(BlueprintCallable, Category="Grid",meta=(AllowPrivateAccess="true"))
+	UFUNCTION(BlueprintCallable, Category="Grid")
 	FVector CellToWorld(const FIntPoint& Cell) const;
 	
-	UFUNCTION(BlueprintCallable, Category="Grid",meta=(AllowPrivateAccess="true"))
+	UFUNCTION(BlueprintCallable, Category="Grid")
 	FIntPoint WorldToCell(const FVector& World) const;
 	
 	UFUNCTION(BlueprintCallable, Category="Grid")
