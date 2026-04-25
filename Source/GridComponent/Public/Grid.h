@@ -42,6 +42,8 @@ public:
 	UFUNCTION(BlueprintPure, Category="Grid")
 	FIntPoint Mirror(FIntPoint Cell) const;
 
+	UFUNCTION(BlueprintPure, Category="Grid")
+	FVector GetGridCenterWorld()const;
 
 	UFUNCTION(BlueprintCallable, Category="Grid")
 	FVector CellToWorld(const FIntPoint& Cell) const;

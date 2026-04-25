@@ -43,6 +43,29 @@ FIntPoint UGrid::Mirror(FIntPoint Cell) const
 	return FIntPoint(GridSize.X - 1 - Cell.X, Cell.Y);
 }
 
+FVector UGrid::GetGridCenterWorld() const
+{
+	if (!GetOwner()) return FVector::ZeroVector;
+
+	const FVector ActorLocation = GetOwner()->GetActorLocation();
+	const FQuat ActorRotation = GetOwner()->GetActorQuat();
+
+	// 1. 获取网格的总尺寸
+	FVector TotalDimensions(
+		GridSize.X * CellSize.X,
+		GridSize.Y * CellSize.Y,
+		0.f
+	);
+
+	// 2. 计算局部空间下的中心点
+	// 公式：原点偏移 + (总尺寸 / 2)
+	// 例如：原点在左上角(-100, -100)，总尺寸(200, 200)，则中心是 (-100, -100) + (100, 100) = (0,0)
+	FVector LocalCenter = GetGridOriginOffset() + (TotalDimensions * 0.5f);
+
+	// 3. 转换到世界空间
+	return ActorLocation + ActorRotation.RotateVector(LocalCenter);
+}
+
 FVector UGrid::CellToWorld(const FIntPoint& Cell) const
 {
 	if (!GetOwner())return FVector::ZeroVector;
